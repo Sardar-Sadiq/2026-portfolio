@@ -87,6 +87,7 @@ export default function App() {
         {/* HERO SECTION */}
         <RevealSection
           id="home"
+          verticalShift={false}
           className="relative h-screen flex flex-col justify-center items-center px-6 overflow-hidden"
         >
           <div className="relative z-10 text-center flex flex-col items-center max-w-7xl">
@@ -104,19 +105,19 @@ export default function App() {
               {/* UI-LAYOUTS SVG Line Sitting at the bottom */}
               <svg
                 viewBox="0 0 600 120"
-                className="absolute bottom-[-110px] left-[-5%] w-[110%] pointer-events-none overflow-visible text-white"
+                className="absolute bottom-[-110px] left-[-5%] w-[120%] pointer-events-none overflow-visible text-white"
                 fill="none"
               >
                 <path
-                  d="M7,50 Q100,70 500, 45 T480,60"
+                  d="M7,50 Q100,70 500,45 T480,60"
                   stroke="currentColor"
                   strokeWidth="3"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   style={{
-                    strokeDasharray: 600,
-                    strokeDashoffset: 600,
-                    animation: "draw-line 1.6s ease-in forwards"
+                    strokeDasharray: 2500,
+                    strokeDashoffset: 2500,
+                    animation: "draw-line 2.5s ease-in forwards"
                   }}
                 />
               </svg>
