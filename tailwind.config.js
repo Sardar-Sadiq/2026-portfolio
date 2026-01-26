@@ -9,6 +9,7 @@ export default {
         handwriting: ['Caveat', 'cursive'],
         poppins: ['Poppins', 'sans-serif'],
       },
+
     },
   },
   plugins: [],
