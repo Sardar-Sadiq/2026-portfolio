@@ -1,0 +1,56 @@
+export const resumeData = {
+    name: "Sardar Sadiq",
+    bio: "I am a Computer Science Engineer specializing in AI, with a proven track record of reducing page load times by 20% through code splitting and architecture optimization. I bridge frontend expertise with serverless architectures and AI-driven integrations.",
+    skills: [
+        "React.js",
+        "Next.js",
+        "GSAP",
+        "Tailwind CSS",
+        "Node.js",
+        "SQL",
+        "MongoDB",
+        "Puter.js",
+        "Figma",
+        "UI/UX Design",
+        "Java",
+        "Python",
+        "Three.js",
+        "Framer Motion",
+    ],
+    experience: [
+        {
+            company: "Zummit Info Labs",
+            role: "Web Developer Intern",
+            period: "Jun — Nov 2024",
+        },
+        {
+            company: "Techplement",
+            role: "Web Developer Intern",
+            period: "Apr — May 2024",
+        },
+    ],
+    projects: [
+        {
+            title: "AI Resume Analyzer",
+            tags: ["React", "Puter.js", "AI"],
+            imgId: "1586717791222-2bb281405a41",
+            link: "#",
+            github: "#",
+        },
+        {
+            title: "Online Exam Portal",
+            tags: ["Node.js", "SQL", "React"],
+            imgId: "1454165851113-557228a16d27",
+            link: "#",
+            github: "#",
+        },
+        {
+            title: "AI Image Enhancer",
+            tags: ["API", "React", "GSAP"],
+            imgId: "1550751827-4bd374c3f58b",
+            link: "#",
+            github: "#",
+        },
+    ],
+    email: "sardarsadiq@example.com",
+};

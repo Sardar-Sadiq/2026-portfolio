@@ -5,14 +5,16 @@ import React from "react";
  */
 const TextHoverEffect = ({ text, active }) => {
     return (
-        <div className="relative group inline-block cursor-default">
-            <div className="text-7xl md:text-[12rem] font-handwriting text-white/5 group-hover:text-white transition-all duration-1000 block tracking-tighter leading-none relative z-10">
+        <div className="relative group inline-block cursor-default w-full md:w-auto transition-transform duration-500 hover:scale-[1.02]">
+            <div
+                className={`text-5xl md:text-[12rem] font-handwriting transition-all duration-1000 block tracking-tighter leading-none relative z-10 break-all md:break-normal ${active ? "text-white" : "text-white/10 md:text-white/5"}`}
+            >
                 {text}
             </div>
             {/* Hand-drawn Signature stroke sitting at the BOTTOM */}
             <svg
                 viewBox="0 0 600 120"
-                className={`absolute bottom-[-180px] left-[90%] -translate-x-1/2 w-[110%] pointer-events-none overflow-visible text-white`}
+                className={`absolute bottom-[-50px] md:bottom-[-160px] left-1/2 -translate-x-1/2 w-[90%] md:w-[110%] pointer-events-none overflow-visible text-white/40`}
                 fill="none"
             >
                 <path
@@ -20,16 +22,15 @@ const TextHoverEffect = ({ text, active }) => {
                     stroke="currentColor"
                     strokeWidth={2}
                     strokeLinecap="square"
-
                     style={{
                         strokeDasharray: 2000,
                         strokeDashoffset: active ? 0 : 2000,
                         transition: "stroke-dashoffset 1.2s cubic-bezier(0.4, 0, 0.2, 1)",
-                        opacity: active ? 0.9 : 0,
+                        opacity: active ? 1 : 0,
                     }}
                 />
             </svg>
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-white/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+            <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-white/10 blur-3xl transition-opacity duration-1000 pointer-events-none ${active ? "opacity-100" : "opacity-0"}`} />
         </div>
     );
 };
