@@ -12,7 +12,7 @@ const TextHoverEffect = ({ text, active }) => {
                 {text}
             </div>
             {/* Hand-drawn Signature stroke sitting at the BOTTOM */}
-            <svg
+            {/* <svg
                 viewBox="0 0 600 120"
                 className={`absolute bottom-[-50px] md:bottom-[-160px] left-1/2 -translate-x-1/2 w-[90%] md:w-[110%] pointer-events-none overflow-visible text-white/40`}
                 fill="none"
@@ -29,7 +29,7 @@ const TextHoverEffect = ({ text, active }) => {
                         opacity: active ? 1 : 0,
                     }}
                 />
-            </svg>
+            </svg> */}
             <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-white/10 blur-3xl transition-opacity duration-1000 pointer-events-none ${active ? "opacity-100" : "opacity-0"}`} />
         </div>
     );
