@@ -22,11 +22,23 @@ export const resumeData = {
             company: "Zummit Info Labs",
             role: "Web Developer Intern",
             period: "Jun — Nov 2024",
+            achievements: [
+                "Reduced layout shifts by 40% using CSS Containment and modern layout techniques.",
+                "Optimized build pipeline reducing bundle size by 150KB.",
+                "Integrated AI-driven content suggestions using DeepSeek API.",
+                "Implemented responsive design for complex dashboard metrics."
+            ]
         },
         {
             company: "Techplement",
             role: "Web Developer Intern",
             period: "Apr — May 2024",
+            achievements: [
+                "Developed interactive data visualization components using Recharts.",
+                "Collaborated with UI/UX team to implement pixel-perfect Figma designs.",
+                "Authored 10+ reusable UI components for the company's internal design system.",
+                "Enhanced accessibility (A11y) across the main platform, achieving 95+ Lighthouse score."
+            ]
         },
     ],
     projects: [
