@@ -41,14 +41,12 @@ const Hero = ({ name }) => {
                 </div>
 
                 <p className="text-zinc-500 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-light mt-16 text-center opacity-80">
-                    Crafting{" "}
+
                     <span className="text-zinc-300 font-medium tracking-wide">
-                        high-performance
-                    </span>{" "}
-                    digital experiences through{" "}
-                    <span className="text-zinc-300 font-medium">
-                        scalable architectures
+                        Frontend Developer · UI Engineer · Learning Full Stack
                     </span>
+
+
                     .
                 </p>
             </div>
