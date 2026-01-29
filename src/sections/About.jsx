@@ -14,14 +14,8 @@ const About = ({ bio, skills }) => {
                         <User size={14} className="text-zinc-300" /> 01. Identification
                     </h2>
                     <h3 className="text-7xl font-handwriting text-white leading-tight tracking-tight relative inline-block">
-                        About <br /> Me
-                        <SVGDraw
-                            width="200"
-                            height="200"
-                            className="top-[-10px] left-[150px] w-[140px] h-[140px] text-white opacity-40 animate-spin [animation-duration:5s]"
-                            path="M100,20 C150,20 180,70 180,100 C180,130 150,180 100,180 C50,180 20,130 20,100 C20,70 50,20 100,20"
-                            active={true}
-                        />
+                        About Me
+
                     </h3>
                 </div>
                 <div>
