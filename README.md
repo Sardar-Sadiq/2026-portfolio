@@ -20,10 +20,6 @@ If you are developing a production application, we recommend using TypeScript wi
 
 
 
-update the hero and about me section with updated the figma designs 
-
-
-
 
 
 
