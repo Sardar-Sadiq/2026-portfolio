@@ -1,5 +1,7 @@
 import React from "react";
+import { motion } from "motion/react";
 import RevealSection from "../components/RevealSection";
+import sticker0 from "../assets/sticker0.png";
 
 const Hero = ({ name }) => {
     return (
@@ -20,9 +22,19 @@ const Hero = ({ name }) => {
                     <h1 className="text-8xl md:text-[14.5rem] font-handwriting text-white mb-6 tracking-tight leading-[0.7] relative z-10">
                         {name}
                     </h1>
+
+                    {/* Sticker Image */}
+                    <div className="absolute right-[30%] md:right-[-10%] -bottom-25 md:-bottom-50 z-20 w-28 md:w-60 pointer-events-none select-none rotate-[-4deg] md:rotate-[0deg]">
+                        <img
+                            src={sticker0}
+                            alt="Hello I'm a Developer"
+                            className="w-full h-auto drop-shadow-xl"
+                        />
+                    </div>
+
                     <svg
                         viewBox="0 0 600 120"
-                        className="absolute bottom-[-40px] md:bottom-[-110px] left-[-5%] w-[110%] md:w-[120%] pointer-events-none overflow-visible text-white"
+                        className="absolute bottom-[-40px] md:bottom-[-110px] left-[0] w-[90%] md:w-[120%] pointer-events-none overflow-visible text-white"
                         fill="none"
                     >
                         <path
@@ -41,12 +53,9 @@ const Hero = ({ name }) => {
                 </div>
 
                 <p className="text-zinc-500 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-light mt-16 text-center opacity-80">
-
                     <span className="text-zinc-300 font-medium tracking-wide">
-                        Frontend Developer · UI Engineer · Learning Full Stack
+                        Frontend · UI · Full Stack
                     </span>
-
-
                     .
                 </p>
             </div>

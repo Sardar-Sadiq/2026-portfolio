@@ -7,15 +7,14 @@ export const resumeData = {
         "JS/TS",
         "Tailwind CSS",
         "Node.js",
-        "SQL",
+        "Motion",
         "MongoDB",
-        "GSAP",
         "Figma",
         "UI/UX Design",
-        "Java",
+        "SQL",
         "Python",
         "Three.js",
-        "Framer Motion",
+        "GSAP",
     ],
     experience: [
         {

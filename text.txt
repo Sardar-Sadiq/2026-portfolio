@@ -142,3 +142,4 @@ fire mini animation code in pure html3
 
 
 
+Copy Done
