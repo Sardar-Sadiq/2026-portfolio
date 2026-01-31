@@ -59,13 +59,13 @@ const FireSticker = ({ className = "" }) => {
                 .call(() => {
                     if (innerRef.current) innerRef.current.setAttribute('d', nextData.inner);
                 })
-                .delay(0.04)
+                .delay(0.02)
                 .call(() => {
                     if (outerRef.current) outerRef.current.setAttribute('d', nextData.outer);
                 })
                 .to([outerRef.current, innerRef.current], {
                     opacity: 1,
-                    duration: 0.05,
+                    duration: 0.03,
                     ease: "none"
                 });
 

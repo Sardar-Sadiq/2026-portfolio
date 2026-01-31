@@ -34,7 +34,7 @@ const About = ({ bio, skills }) => {
                         </picture>
 
                         {/* Fire Sticker at Bottom Right of Image */}
-                        <FireSticker className="absolute -right-12 -bottom-2 md:-right-25 md:-bottom-2 w-28 h-32 md:w-45 md:h-55 -z-30 rotate-[50deg] pointer-events-none" />
+                        <FireSticker className="absolute -right-12 -bottom-2 md:-right-25 md:-bottom-2 w-28 h-32 md:w-45 md:h-55 -z-10 rotate-[50deg] pointer-events-none" />
                     </div>
                 </div>
 
