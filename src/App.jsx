@@ -9,6 +9,7 @@ import About from "./sections/About";
 import Work from "./sections/Work";
 import Projects from "./sections/Projects";
 import Footer from "./sections/Footer";
+import FireEffectFooter from "./components/FireEffectFooter";
 
 // Data
 import { resumeData } from "./data/data";
@@ -40,6 +41,7 @@ export default function App() {
         <Work experience={resumeData.experience} />
         <Projects projects={resumeData.projects} />
         <Footer name={resumeData.name} email={resumeData.email} />
+        <FireEffectFooter />
 
         {/* UI-LAYOUTS Magnified Dock */}
         <MagnifiedDock />

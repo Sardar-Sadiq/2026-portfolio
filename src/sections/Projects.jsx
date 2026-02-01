@@ -11,13 +11,13 @@ import {
     DialogDescription,
     DialogContainer,
 } from "../components/ui/linear-modal";
-import LiquidGlassCard from "../components/LiquidGlassCard";
+
 
 const Projects = ({ projects }) => {
     return (
         <RevealSection
             id="projects"
-            className="relative py-24 border-t border-white/5 max-w-6xl mx-auto px-6"
+            className="relative py-24 mb-20 border-t border-white/5 max-w-6xl mx-auto px-6"
         >
             <div className="mb-20 relative">
                 <h2 className="text-xs uppercase tracking-[0.4em] text-zinc-500 mb-6 flex items-center gap-3 font-poppins">
@@ -39,25 +39,26 @@ const Projects = ({ projects }) => {
                         }}
                     >
                         <DialogTrigger
-                            className="flex w-full flex-col overflow-hidden group"
+                            style={{
+                                borderRadius: "24px",
+                            }}
+                            className="flex w-full flex-col overflow-hidden group bg-[#aeaeae0f] backdrop-brightness-[108.0%] backdrop-saturate-[105.0%] backdrop-hue-rotate-[10.0deg] [-webkit-backdrop-filter:brightness(108.0%)_saturate(105.0%)_hue-rotate(10.0deg)] shadow-[inset_1px_0_0_rgba(255,255,255,0.32),inset_-1px_0_1px_rgba(0,0,0,0.16)]"
                         >
-                            <LiquidGlassCard className="w-full flex h-full flex-col">
-                                <DialogImage
-                                    src={`https://images.unsplash.com/photo-${project.imgId}?auto=format&fit=crop&q=80&w=800`}
-                                    alt={project.title}
-                                    className="h-64 w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                                />
-                                <div className="flex grow flex-row items-center justify-between p-6">
-                                    <div>
-                                        <DialogTitle className="text-white text-2xl font-handwriting">
-                                            {project.title}
-                                        </DialogTitle>
-                                    </div>
-                                    <div className="p-2 bg-white/5 border border-white/10 rounded-lg group-hover:bg-white/10 transition-colors">
-                                        <Plus className="w-5 h-5 text-white" />
-                                    </div>
+                            <DialogImage
+                                src={`https://images.unsplash.com/photo-${project.imgId}?auto=format&fit=crop&q=80&w=800`}
+                                alt={project.title}
+                                className="h-64 w-full object-cover"
+                            />
+                            <div className="flex grow flex-row items-center justify-between p-6">
+                                <div>
+                                    <DialogTitle className="text-white text-2xl font-handwriting">
+                                        {project.title}
+                                    </DialogTitle>
                                 </div>
-                            </LiquidGlassCard>
+                                <div className="p-2 bg-white/5 border border-white/10 rounded-lg group-hover:bg-white/10 transition-colors">
+                                    <Plus className="w-5 h-5 text-white" />
+                                </div>
+                            </div>
                         </DialogTrigger>
                         <DialogContainer
                             className="flex items-center justify-center pb-10"
@@ -67,14 +68,14 @@ const Projects = ({ projects }) => {
                                 style={{
                                     borderRadius: "24px",
                                 }}
-                                className="relative flex h-fit max-h-[90vh] mx-auto flex-col overflow-y-auto border border-white/10 bg-black lg:w-[600px] w-[90%]"
+                                className="relative flex h-fit max-h-[90vh] mx-auto flex-col overflow-hidden border border-white/10 bg-black lg:w-[600px] w-[90%]"
                             >
                                 <DialogImage
                                     src={`https://images.unsplash.com/photo-${project.imgId}?auto=format&fit=crop&q=80&w=1200`}
                                     alt={project.title}
                                     className="h-72 w-full object-cover"
                                 />
-                                <div className="p-8">
+                                <div className="p-8 overflow-y-auto flex-1">
                                     <div className="flex items-center justify-between mb-4">
                                         <DialogTitle className="text-4xl text-white font-handwriting">
                                             {project.title}

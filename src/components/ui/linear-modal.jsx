@@ -25,8 +25,8 @@ function DialogProvider({ children, transition }) {
   const uniqueId = useId();
   const triggerRef = useRef(null);
   const contextValue = useMemo(
-    () => ({ isOpen, setIsOpen, uniqueId, triggerRef }),
-    [isOpen, uniqueId],
+    () => ({ isOpen, setIsOpen, uniqueId, triggerRef, transition }),
+    [isOpen, uniqueId, transition],
   );
   return (
     <DialogContext.Provider
@@ -38,8 +38,8 @@ function DialogProvider({ children, transition }) {
 }
 function Dialog({ children, transition }) {
   return (
-    <DialogProvider>
-      <MotionConfig transition={transition}>{children}</MotionConfig>
+    <DialogProvider transition={transition}>
+      {children}
     </DialogProvider>
   );
 }
@@ -61,6 +61,7 @@ function DialogTrigger({ children, className, style, triggerRef }) {
     <motion.div
       ref={triggerRef}
       layoutId={`dialog-${uniqueId}`}
+      layout
       className={cn("relative cursor-pointer", className)}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
@@ -141,22 +142,17 @@ function DialogContent({ children, className, style }) {
         aria-modal="true"
         aria-labelledby={`dialog-title-${uniqueId}`}
         aria-describedby={`dialog-description-${uniqueId}`}
-        initial={{ scale: 0.9, opacity: 0, filter: "blur(10px)" }}
-        animate={{ scale: 1, opacity: 1, filter: "blur(0px)" }}
-        exit={{ scale: 0.9, opacity: 0, filter: "blur(10px)" }}
-        transition={{
-          type: "spring",
-          damping: 30,
-          stiffness: 300,
-          mass: 0.8,
-        }}>
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        key={`dialog-content-${uniqueId}`}>
         {children}
       </motion.div>
     </>
   );
 }
 function DialogContainer({ children, className, overlayClassName }) {
-  const { isOpen, setIsOpen, uniqueId } = useDialog();
+  const { isOpen, setIsOpen, uniqueId, transition } = useDialog();
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     const drawerWrapper = document.querySelectorAll("[drawer-wrapper]");
@@ -185,7 +181,7 @@ function DialogContainer({ children, className, overlayClassName }) {
   }, []);
   if (!mounted) return null;
   return createPortal(
-    <AnimatePresence initial={false} mode="wait">
+    <AnimatePresence initial={false}>
       {isOpen && (
         <>
           <motion.div
@@ -198,17 +194,25 @@ function DialogContainer({ children, className, overlayClassName }) {
             initial={{ opacity: 0, backdropFilter: "blur(0px)" }}
             animate={{ opacity: 1, backdropFilter: "blur(24px)" }}
             exit={{ opacity: 0, backdropFilter: "blur(0px)" }}
-            transition={{
-              duration: 0.4,
-              ease: "circOut",
+            transition={transition || {
+              duration: 0.5,
+              ease: "easeInOut",
             }}
             onClick={() => setIsOpen(false)}>
             {/* Noise Layer */}
             <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
           </motion.div>
           <motion.div
+            key={`dialog-wrapper-${uniqueId}`}
             className={cn(`fixed inset-0 z-50 w-fit mx-auto`, className)}
-            style={{ willChange: "transform" }} // GPU acceleration for transforms
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={transition || {
+              duration: 0.5,
+              ease: "easeInOut",
+            }}
+            style={{ willChange: "transform" }}
           >
             {children}
           </motion.div>
@@ -266,15 +270,16 @@ function DialogDescription({
     </motion.div>
   );
 }
-function DialogImage({ src, alt, className, style }) {
+function DialogImage({ src, alt, className, style, transition }) {
   const { uniqueId } = useDialog();
   return (
     <motion.img
       src={src}
       alt={alt}
-      className={cn(className)}
+      className={cn("block w-full h-auto object-cover", className)}
       layoutId={`dialog-img-${uniqueId}`}
       style={style}
+      transition={transition}
     />
   );
 }
