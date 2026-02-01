@@ -7,6 +7,7 @@ export default {
     extend: {
       fontFamily: {
         handwriting: ['Caveat', 'cursive'],
+        kalam: ['Kalam', 'cursive'],
         poppins: ['Poppins', 'sans-serif'],
       },
 

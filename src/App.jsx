@@ -20,9 +20,10 @@ export default function App() {
         <style
           dangerouslySetInnerHTML={{
             __html: `
-          @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Poppins:wght@100;200;300;400;500;600&display=swap');
-          :root { --font-handwriting: 'Caveat', cursive; --font-poppins: 'Poppins', sans-serif; }
+          @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Poppins:wght@100;200;300;400;500;600&family=Kalam:wght@300;400;700&display=swap');
+          :root { --font-handwriting: 'Caveat', cursive; --font-kalam: 'Kalam', cursive; --font-poppins: 'Poppins', sans-serif; }
           .font-handwriting { font-family: var(--font-handwriting) !important; }
+          .font-kalam { font-family: var(--font-kalam) !important; }
           .font-poppins { font-family: var(--font-poppins) !important; }
           ::-webkit-scrollbar { width: 0px; }
           html { scrollbar-width: none; }

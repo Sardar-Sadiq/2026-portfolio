@@ -19,7 +19,7 @@ const StackFrame = ({ exp, isOpen, onClick, index }) => {
                     <span className="text-zinc-600 font-mono text-sm group-hover:text-white transition-colors">
                         [{index.toString().padStart(2, "0")}]
                     </span>
-                    <h3 className="font-handwriting text-2xl md:text-3xl font-semibold text-white tracking-wide group-hover:scale-[1.02] transition-transform origin-left">
+                    <h3 className="font-kalam text-2xl md:text-3xl font-light text-white tracking-wide group-hover:scale-[1.02] transition-transform origin-left">
                         at {companyName}.{roleName}()
                         <span className="text-zinc-500 text-sm ml-4 font-poppins font-normal">— {exp.period}</span>
                     </h3>
