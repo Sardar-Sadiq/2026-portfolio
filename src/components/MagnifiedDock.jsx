@@ -9,7 +9,6 @@ import {
     Home,
     AtSign,
 } from "lucide-react";
-import LiquidGlassCard from "./LiquidGlassCard";
 
 const MagnifiedDock = () => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
@@ -48,9 +47,8 @@ const MagnifiedDock = () => {
 
     return (
         <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-center justify-center pointer-events-none">
-            <LiquidGlassCard
-                className="!rounded-full px-4 py-3 pointer-events-auto shadow-2xl transition-all duration-500 hover:gap-4 border border-white/10"
-                style={{ display: 'flex', alignItems: 'flex-end', gap: '8px' }}
+            <div
+                className="rounded-full px-4 py-3 pointer-events-auto bg-black/40 backdrop-blur-md border border-white/10 shadow-2xl transition-all duration-500 hover:gap-4 ml-auto mr-auto flex items-end gap-2"
                 onMouseLeave={() => setHoveredIndex(null)}
             >
                 {items.map((item, i) => {
@@ -89,11 +87,9 @@ const MagnifiedDock = () => {
                         </React.Fragment>
                     );
                 })}
-            </LiquidGlassCard>
+            </div>
         </div>
     );
 };
 
-
 export default MagnifiedDock;
-

@@ -22,3 +22,6 @@ const LiquidGlassCard = ({ children, className = "", style = {} }) => {
 };
 
 export default LiquidGlassCard;
+
+
+
