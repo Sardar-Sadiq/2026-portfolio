@@ -5,7 +5,7 @@ const Footer = ({ name, email }) => {
     const [footerHovered, setFooterHovered] = useState(false);
 
     return (
-        <footer className="relative pt-60 pb-32 px-6 text-center overflow-hidden">
+        <footer id="footer" className="relative pt-60 pb-32 px-6 text-center overflow-hidden">
             <h2 className="text-xs uppercase tracking-[0.5em] text-zinc-600 mb-16 font-medium italic underline underline-offset-8 decoration-zinc-800 font-poppins">
                 Collaboration & Inquiries
             </h2>
