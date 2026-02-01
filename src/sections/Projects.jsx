@@ -11,6 +11,7 @@ import {
     DialogDescription,
     DialogContainer,
 } from "../components/ui/linear-modal";
+import LiquidGlassCard from "../components/LiquidGlassCard";
 
 const Projects = ({ projects }) => {
     return (
@@ -38,26 +39,25 @@ const Projects = ({ projects }) => {
                         }}
                     >
                         <DialogTrigger
-                            style={{
-                                borderRadius: "20px",
-                            }}
-                            className="flex w-full flex-col overflow-hidden border border-white/10 bg-zinc-900/50 hover:bg-zinc-800/50 transition-colors group"
+                            className="flex w-full flex-col overflow-hidden group"
                         >
-                            <DialogImage
-                                src={`https://images.unsplash.com/photo-${project.imgId}?auto=format&fit=crop&q=80&w=800`}
-                                alt={project.title}
-                                className="h-64 w-full object-cover"
-                            />
-                            <div className="flex grow flex-row items-center justify-between p-6">
-                                <div>
-                                    <DialogTitle className="text-white text-2xl font-handwriting">
-                                        {project.title}
-                                    </DialogTitle>
+                            <LiquidGlassCard className="w-full flex h-full flex-col">
+                                <DialogImage
+                                    src={`https://images.unsplash.com/photo-${project.imgId}?auto=format&fit=crop&q=80&w=800`}
+                                    alt={project.title}
+                                    className="h-64 w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                                />
+                                <div className="flex grow flex-row items-center justify-between p-6">
+                                    <div>
+                                        <DialogTitle className="text-white text-2xl font-handwriting">
+                                            {project.title}
+                                        </DialogTitle>
+                                    </div>
+                                    <div className="p-2 bg-white/5 border border-white/10 rounded-lg group-hover:bg-white/10 transition-colors">
+                                        <Plus className="w-5 h-5 text-white" />
+                                    </div>
                                 </div>
-                                <div className="p-2 bg-white/5 border border-white/10 rounded-lg group-hover:bg-white/10 transition-colors">
-                                    <Plus className="w-5 h-5 text-white" />
-                                </div>
-                            </div>
+                            </LiquidGlassCard>
                         </DialogTrigger>
                         <DialogContainer
                             className="flex items-center justify-center pb-10"

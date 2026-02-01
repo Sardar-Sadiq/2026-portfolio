@@ -1,9 +1,9 @@
-
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { SparklesCore } from "./ui/Sparkles";
 import { cn } from "../lib/utils";
 import { ChevronRight, ChevronDown, Terminal } from "lucide-react";
+import LiquidGlassCard from "./LiquidGlassCard";
 
 const StackFrame = ({ exp, isOpen, onClick, index }) => {
     const companyName = exp.company.replace(/\s+/g, "");
@@ -109,7 +109,7 @@ const StackTrace = ({ experience }) => {
     const [openIndex, setOpenIndex] = useState(0);
 
     return (
-        <div className="w-full rounded-3xl overflow-hidden border border-white/5 bg-white/5 shadow-2xl">
+        <LiquidGlassCard className="w-full">
             <div className="flex flex-col">
                 {experience.map((exp, i) => (
                     <StackFrame
@@ -121,7 +121,7 @@ const StackTrace = ({ experience }) => {
                     />
                 ))}
             </div>
-        </div>
+        </LiquidGlassCard>
     );
 };
 

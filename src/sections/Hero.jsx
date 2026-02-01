@@ -54,7 +54,7 @@ const Hero = ({ name }) => {
 
                 <p className="text-zinc-500 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-light mt-16 text-center opacity-80">
                     <span className="text-zinc-300 font-medium tracking-wide">
-                        Frontend · UI · Full Stack
+                        Frontend · Full Stack
                     </span>
                     .
                 </p>
