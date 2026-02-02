@@ -10,7 +10,7 @@ export const resumeData = {
         "Motion",
         "MongoDB",
         "Figma",
-        "UI/UX Design",
+        "UI Design",
         "SQL",
         "Python",
         "Three.js",
