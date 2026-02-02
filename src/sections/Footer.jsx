@@ -22,7 +22,13 @@ const Footer = ({ name, email }) => {
                 particleCount: 150,
                 spread: 70,
                 origin: { x, y }, // Exactly from the button center
-                colors: ["#10b981", "#ff0000ff", "#ffffff", "#000000"],
+                colors: [
+                    "#ef4444", // Red
+                    "#22c55e", // Green
+                    "#eab308", // Yellow
+                    "#ffffff", // White
+                    "#3b82f6"  // Blue
+                ],
                 zIndex: 9999
             });
         }
