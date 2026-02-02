@@ -1,5 +1,5 @@
 import React from "react";
-import { Layers, Plus, Github, ExternalLink } from "lucide-react";
+import { Layers, Plus, ExternalLink } from "lucide-react";
 import RevealSection from "../components/RevealSection";
 import {
     Dialog,
@@ -45,7 +45,7 @@ const Projects = ({ projects }) => {
                             className="flex w-full flex-col overflow-hidden group bg-[#aeaeae0f] backdrop-brightness-[108.0%] backdrop-saturate-[105.0%] backdrop-hue-rotate-[10.0deg] [-webkit-backdrop-filter:brightness(108.0%)_saturate(105.0%)_hue-rotate(10.0deg)] shadow-[inset_1px_0_0_rgba(255,255,255,0.32),inset_-1px_0_1px_rgba(0,0,0,0.16)]"
                         >
                             <DialogImage
-                                src={`https://images.unsplash.com/photo-${project.imgId}?auto=format&fit=crop&q=80&w=800`}
+                                src={project.imgId}
                                 alt={project.title}
                                 className="h-64 w-full object-cover"
                             />
@@ -71,7 +71,7 @@ const Projects = ({ projects }) => {
                                 className="relative flex h-fit max-h-[90vh] mx-auto flex-col overflow-hidden border border-white/10 bg-black lg:w-[600px] w-[90%]"
                             >
                                 <DialogImage
-                                    src={`https://images.unsplash.com/photo-${project.imgId}?auto=format&fit=crop&q=80&w=1200`}
+                                    src={project.imgId}
                                     alt={project.title}
                                     className="h-72 w-full object-cover"
                                 />
@@ -81,14 +81,6 @@ const Projects = ({ projects }) => {
                                             {project.title}
                                         </DialogTitle>
                                         <div className="flex gap-3">
-                                            <a
-                                                href={project.github}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="text-zinc-500 hover:text-white transition-colors"
-                                            >
-                                                <Github size={20} />
-                                            </a>
                                             <a
                                                 href={project.link}
                                                 target="_blank"

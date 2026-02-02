@@ -1,9 +1,34 @@
-import React, { useState, useEffect } from "react";
-import { motion } from "motion/react";
-import { Mail, ArrowUpRight, Clock, MapPin, Globe } from "lucide-react";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { Mail, ArrowUpRight, Clock, MapPin, Globe, ThumbsUp } from "lucide-react";
+import confetti from "canvas-confetti";
 
 const Footer = ({ name, email }) => {
     const [time, setTime] = useState(new Date());
+    const [copied, setCopied] = useState(false);
+    const buttonRef = useRef(null);
+
+    const handleCopyEmail = () => {
+        navigator.clipboard.writeText(email);
+        setCopied(true);
+
+        // Calculate button position for confetti
+        if (buttonRef.current) {
+            const rect = buttonRef.current.getBoundingClientRect();
+            const x = (rect.left + rect.width / 2) / window.innerWidth;
+            const y = (rect.top + rect.height / 2) / window.innerHeight;
+
+            confetti({
+                particleCount: 150,
+                spread: 70,
+                origin: { x, y }, // Exactly from the button center
+                colors: ["#10b981", "#ff0000ff", "#ffffff", "#000000"],
+                zIndex: 9999
+            });
+        }
+
+        setTimeout(() => setCopied(false), 2000);
+    };
 
     useEffect(() => {
         const timer = setInterval(() => setTime(new Date()), 1000);
@@ -32,21 +57,38 @@ const Footer = ({ name, email }) => {
                         Let&apos;s build <br /> something <span className="text-zinc-600 italic">together</span>
                     </h3>
 
-                    <motion.a
-                        href={`mailto:${email}`}
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="group relative inline-flex items-center gap-4 bg-white/[0.03] backdrop-blur-md border border-white/10 px-8 py-6 rounded-2xl overflow-hidden"
-                    >
-                        <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                        <div className="relative flex flex-col flex-1 min-w-0">
-                            <span className="text-[10px] uppercase tracking-widest text-zinc-500 mb-1">Send an inquiry</span>
-                            <span className="text-sm md:text-lg font-medium text-white truncate">{email}</span>
-                        </div>
-                        <div className="relative w-12 h-12 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-emerald-500 group-hover:text-black transition-all flex-shrink-0">
-                            <Mail size={20} />
-                        </div>
-                    </motion.a>
+                    <div className="relative">
+                        <motion.button
+                            ref={buttonRef}
+                            onClick={handleCopyEmail}
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="group relative inline-flex items-center gap-4 bg-white/[0.03] backdrop-blur-md border border-white/10 px-8 py-6 rounded-2xl overflow-hidden cursor-pointer"
+                        >
+                            <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                            <div className="relative flex flex-col items-start flex-1 min-w-0">
+                                <span className="text-[10px] uppercase tracking-widest text-zinc-500 mb-1">Click to copy email</span>
+                                <span className="text-sm md:text-lg font-medium text-white truncate">{email}</span>
+                            </div>
+                            <div className="relative w-12 h-12 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-emerald-500 group-hover:text-black transition-all flex-shrink-0">
+                                <Mail size={20} />
+                            </div>
+                        </motion.button>
+
+                        <AnimatePresence>
+                            {copied && (
+                                <motion.div
+                                    initial={{ opacity: 0, scale: 0.5, y: 20 }}
+                                    animate={{ opacity: 1, scale: 1, y: -40 }}
+                                    exit={{ opacity: 0, scale: 0.5, y: 20 }}
+                                    className="absolute left-1/2 -translate-x-1/2 top-0 z-50 flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-xl"
+                                >
+                                    <ThumbsUp size={16} className="text-black fill-black" />
+                                    <span className="text-black font-semibold text-xs whitespace-nowrap">Copy Done</span>
+                                </motion.div>
+                            )}
+                        </AnimatePresence>
+                    </div>
                 </div>
             </div>
 

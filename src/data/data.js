@@ -1,6 +1,6 @@
 export const resumeData = {
     name: "Sardar Sadiq",
-    bio: "I’m Sardar Sadiq, a frontend-focused developer building performant web interfaces with React and Next.js. I enjoy solving UI and performance problems and exploring AI-powered, serverless web applications.",
+    bio: "I’m  Sardar Sadiq, a frontend-focused developer building performant web interfaces with React and Next.js. I enjoy solving UI and performance problems and exploring AI-powered, serverless web applications.",
     skills: [
         "React.js",
         "Next.js",
@@ -43,24 +43,21 @@ export const resumeData = {
     projects: [
         {
             title: "AI Resume Analyzer",
-            tags: ["React", "Puter.js", "AI"],
-            imgId: "1586717791222-2bb281405a41",
-            link: "#",
-            github: "#",
+            tags: ["React", "Tailwind CSS", "API", "Puter.js", "AI"],
+            imgId: "./src/assets/pro1.png",
+            link: "https://ai-resume-analyzer-nine-pearl.vercel.app/",
         },
         {
-            title: "Online Exam Portal",
-            tags: ["Node.js", "SQL", "React"],
-            imgId: "1454165851113-557228a16d27",
-            link: "#",
-            github: "#",
+            title: "Zentry gaming website",
+            tags: ["React", "Tailwind CSS", "GSAP", "Three.js"],
+            imgId: "./src/assets/pro2.png",
+            link: "https://gamingwebsite-phi.vercel.app/",
         },
         {
             title: "AI Image Enhancer",
-            tags: ["API", "React", "GSAP"],
-            imgId: "1550751827-4bd374c3f58b",
-            link: "#",
-            github: "#",
+            tags: ["React", "Tailwind CSS", "API", "AI"],
+            imgId: "./src/assets/p3.png",
+            link: "https://image-enhancer-bice.vercel.app/",
         },
     ],
     email: "sardarsadiq001@example.com",
