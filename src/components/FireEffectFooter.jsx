@@ -62,13 +62,15 @@ const FireEffectFooter = () => {
                 style={{
                     margin: 0,
                     padding: 0,
-                    fontSize: "11.5px",
+                    fontSize: "11px",
                     lineHeight: 1,
                     position: "absolute",
                     bottom: 0,
                     left: "50%",
                     transform: "translateX(-50%)",
-                    textAlign: "center"
+                    textAlign: "center",
+                    maskImage: "linear-gradient(to right, transparent, black 20%, black 80%, transparent)",
+                    WebkitMaskImage: "linear-gradient(to right, transparent, black 20%, black 80%, transparent)"
                 }}
             >
                 {fireString}

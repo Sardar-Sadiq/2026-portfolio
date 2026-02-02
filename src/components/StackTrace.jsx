@@ -15,14 +15,18 @@ const StackFrame = ({ exp, isOpen, onClick, index }) => {
                 onClick={onClick}
                 className="w-full text-left py-8 px-6 bg-black/20 hover:bg-black/40 transition-all duration-300 flex items-center justify-between group"
             >
-                <div className="flex items-center gap-6">
-                    <span className="text-zinc-600 font-mono text-sm group-hover:text-white transition-colors">
+                <div className="flex items-center gap-4 md:gap-6 flex-1 min-w-0">
+                    <span className="text-zinc-600 font-mono text-xs md:text-sm group-hover:text-white transition-colors flex-shrink-0">
                         [{index.toString().padStart(2, "0")}]
                     </span>
-                    <h3 className="font-kalam text-2xl md:text-3xl font-light text-white tracking-wide group-hover:scale-[1.02] transition-transform origin-left">
-                        at {companyName}.{roleName}()
-                        <span className="text-zinc-500 text-sm ml-4 font-poppins font-normal">— {exp.period}</span>
-                    </h3>
+                    <div className="flex flex-col md:flex-row md:items-baseline flex-1 min-w-0 overflow-hidden">
+                        <h3 className="font-kalam text-lg md:text-3xl font-light text-white tracking-wide group-hover:scale-[1.02] transition-transform origin-left truncate">
+                            {companyName}.{roleName}()
+                        </h3>
+                        <span className="text-zinc-500 text-[9px] md:text-sm md:ml-4 font-poppins font-normal whitespace-nowrap opacity-50 md:opacity-100">
+                            — {exp.period}
+                        </span>
+                    </div>
                 </div>
                 <div className="flex items-center gap-3">
                     <span className="text-[10px] font-mono text-zinc-500 uppercase tracking-[0.2em] hidden md:inline">

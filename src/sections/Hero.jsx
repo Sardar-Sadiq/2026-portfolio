@@ -24,7 +24,7 @@ const Hero = ({ name }) => {
                     </h1>
 
                     {/* Sticker Image */}
-                    <div className="absolute right-[30%] md:right-[-10%] -bottom-25 md:-bottom-50 z-20 w-28 md:w-60 pointer-events-none select-none rotate-[-4deg] md:rotate-[0deg]">
+                    <div className="absolute hidden md:block right-[30%] md:right-[-10%] -bottom-25 md:-bottom-50 z-20 w-28 md:w-60 pointer-events-none select-none rotate-[-4deg] md:rotate-[0deg]">
                         <img
                             src={sticker0}
                             alt="Hello I'm a Developer"
@@ -34,11 +34,11 @@ const Hero = ({ name }) => {
 
                     <svg
                         viewBox="0 0 600 120"
-                        className="absolute bottom-[-40px] md:bottom-[-110px] left-[0] w-[90%] md:w-[120%] pointer-events-none overflow-visible text-white"
+                        className="absolute bottom-[-40px] md:bottom-[-130px] left-[0] w-[90%] md:w-[120%] pointer-events-none overflow-visible text-white"
                         fill="none"
                     >
                         <path
-                            d="M7,50 Q100,70 500,45 T480,60"
+                            d="M7,50 Q100,70 450,45 T480,60"
                             stroke="currentColor"
                             strokeWidth="3"
                             strokeLinecap="round"

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLenis } from "lenis/react";
 import {
     Github,
@@ -12,7 +12,15 @@ import {
 
 const MagnifiedDock = () => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
+    const [isMobile, setIsMobile] = useState(false);
     const lenis = useLenis();
+
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        checkMobile();
+        window.addEventListener("resize", checkMobile);
+        return () => window.removeEventListener("resize", checkMobile);
+    }, []);
 
     const items = [
         { icon: <Home size={22} />, label: "Home", href: "#home" },
@@ -46,15 +54,22 @@ const MagnifiedDock = () => {
     };
 
     return (
-        <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-center justify-center pointer-events-none">
+        <div className="fixed bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-center justify-center pointer-events-none w-full max-w-fit px-4">
             <div
-                className="rounded-full px-4 py-3 pointer-events-auto bg-black/40 backdrop-blur-md border border-white/10 shadow-2xl transition-all duration-500 hover:gap-4 ml-auto mr-auto flex items-end gap-2"
+                className="rounded-full px-2 md:px-4 py-2 md:py-3 pointer-events-auto bg-black/40 backdrop-blur-md border border-white/10 shadow-2xl transition-all duration-500 hover:gap-4 flex items-end gap-1 md:gap-2"
                 onMouseLeave={() => setHoveredIndex(null)}
             >
                 {items.map((item, i) => {
                     const isHovered = hoveredIndex === i;
                     const isNeighbor =
                         hoveredIndex !== null && Math.abs(hoveredIndex - i) === 1;
+
+                    // Responsive sizing
+                    const baseSize = isMobile ? 32 : 40;
+                    const iconSize = isMobile ? 18 : 22;
+                    const hoverScale = isMobile ? 1.3 : 1.5;
+                    const neighborScale = isMobile ? 1.1 : 1.2;
+
                     return (
                         <React.Fragment key={i}>
                             <a
@@ -65,20 +80,20 @@ const MagnifiedDock = () => {
                                 onMouseEnter={() => setHoveredIndex(i)}
                                 className="relative flex flex-col items-center justify-center transition-all duration-300 ease-out"
                                 style={{
-                                    transform: `scale(${isHovered ? 1.5 : isNeighbor ? 1.2 : 1}) translateY(${isHovered ? -12 : isNeighbor ? -4 : 0}px)`,
-                                    width: "40px",
-                                    height: "40px",
+                                    transform: `scale(${isHovered ? hoverScale : isNeighbor ? neighborScale : 1}) translateY(${isHovered ? -10 : isNeighbor ? -3 : 0}px)`,
+                                    width: `${baseSize}px`,
+                                    height: `${baseSize}px`,
                                 }}
                             >
                                 <span
-                                    className={`absolute -top-12 left-1/2 -translate-x-1/2 bg-white text-black text-[9px] px-2 py-1 rounded-md font-bold tracking-widest transition-opacity duration-200 uppercase pointer-events-none ${isHovered ? "opacity-100" : "opacity-0"} font-poppins`}
+                                    className={`absolute -top-12 left-1/2 -translate-x-1/2 bg-white text-black text-[9px] px-2 py-1 rounded-md font-bold tracking-widest transition-opacity duration-200 uppercase pointer-events-none ${isHovered ? "opacity-100" : "opacity-0"} font-poppins hidden md:block`}
                                 >
                                     {item.label}
                                 </span>
                                 <div
                                     className={`transition-colors duration-300 ${isHovered ? "text-white" : "text-zinc-500"}`}
                                 >
-                                    {item.icon}
+                                    {React.cloneElement(item.icon, { size: iconSize })}
                                 </div>
                             </a>
                             {item.label === "Contact" && (

@@ -39,11 +39,11 @@ const Footer = ({ name, email }) => {
                         className="group relative inline-flex items-center gap-4 bg-white/[0.03] backdrop-blur-md border border-white/10 px-8 py-6 rounded-2xl overflow-hidden"
                     >
                         <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                        <div className="relative flex flex-col">
+                        <div className="relative flex flex-col flex-1 min-w-0">
                             <span className="text-[10px] uppercase tracking-widest text-zinc-500 mb-1">Send an inquiry</span>
-                            <span className="text-lg font-medium text-white">{email}</span>
+                            <span className="text-sm md:text-lg font-medium text-white truncate">{email}</span>
                         </div>
-                        <div className="relative w-12 h-12 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-emerald-500 group-hover:text-black transition-all">
+                        <div className="relative w-12 h-12 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-emerald-500 group-hover:text-black transition-all flex-shrink-0">
                             <Mail size={20} />
                         </div>
                     </motion.a>

@@ -63,5 +63,5 @@ export const resumeData = {
             github: "#",
         },
     ],
-    email: "sardarsadiq@example.com",
+    email: "sardarsadiq001@example.com",
 };
