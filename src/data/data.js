@@ -20,7 +20,7 @@ export const resumeData = {
         {
             company: "Zummit Info Labs",
             role: "Web Developer Intern",
-            period: "Jun — Nov 2024",
+            period: "Jun — Oct 2024",
             achievements: [
                 "Reduced layout shifts by 40% using CSS Containment and modern layout techniques.",
                 "Optimized build pipeline reducing bundle size by 150KB.",
