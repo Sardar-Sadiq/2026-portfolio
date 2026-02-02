@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { SparklesCore } from "./ui/Sparkles";
 import { cn } from "../lib/utils";
 import { ChevronRight, ChevronDown, Terminal } from "lucide-react";
 import LiquidGlassCard from "./LiquidGlassCard";
@@ -52,19 +51,6 @@ const StackFrame = ({ exp, isOpen, onClick, index }) => {
                     >
                         {/* Background Dark Overlay */}
                         <div className="absolute inset-0 z-0 bg-[#0a0a0a]/90 shadow-[inset_0_0_50px_rgba(0,0,0,0.5)]" />
-
-                        {/* Sparkles Effect (White) */}
-                        <div className="absolute inset-0 z-0 opacity-40">
-                            <SparklesCore
-                                id={`sparkles-${index}`}
-                                background="transparent"
-                                minSize={0.4}
-                                maxSize={1.2}
-                                particleDensity={60}
-                                className="w-full h-full"
-                                particleColor="#FFFFFF"
-                            />
-                        </div>
 
                         <div className="relative z-10 px-12 md:px-24 py-12 space-y-6">
                             {/* Side White Gradient Line */}

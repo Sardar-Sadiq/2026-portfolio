@@ -1,6 +1,6 @@
 export const resumeData = {
     name: "Sardar Sadiq",
-    bio: "I am a Computer Science Engineer specializing in AI, with a proven track record of reducing page load times by 20% through code splitting and architecture optimization. I bridge frontend expertise with serverless architectures and AI-driven integrations.",
+    bio: "I’m Sardar Sadiq, a frontend-focused developer building performant web interfaces with React and Next.js. I enjoy solving UI and performance problems and exploring AI-powered, serverless web applications.",
     skills: [
         "React.js",
         "Next.js",

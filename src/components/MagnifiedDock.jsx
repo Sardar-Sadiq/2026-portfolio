@@ -31,13 +31,13 @@ const MagnifiedDock = () => {
         {
             icon: <Github size={22} />,
             label: "GitHub",
-            href: "https://github.com/sardarsadiq",
+            href: "https://github.com/Sardar-Sadiq",
             external: true,
         },
         {
             icon: <Linkedin size={22} />,
             label: "LinkedIn",
-            href: "https://linkedin.com/in/sardarsadiq",
+            href: "https://www.linkedin.com/in/sardar-sadiq/",
             external: true,
         },
     ];
