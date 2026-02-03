@@ -81,7 +81,7 @@ const FireEffectFooter = () => {
                 {`
           @media (max-width: 768px) {
             .fire-effect-container {
-              display: none; /* Hide component on smaller screens */
+              display: none; 
             }
           }
         `}
