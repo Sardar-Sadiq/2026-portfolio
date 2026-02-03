@@ -1,3 +1,7 @@
+import pro1 from "../assets/pro1.png";
+import pro2 from "../assets/pro2.png";
+import p3 from "../assets/p3.png";
+
 export const resumeData = {
     name: "Sardar Sadiq",
     bio: "I’m  Sardar Sadiq, a frontend-focused developer building performant web interfaces with React and Next.js. I enjoy solving UI and performance problems and exploring AI-powered, serverless web applications.",
@@ -44,19 +48,19 @@ export const resumeData = {
         {
             title: "AI Resume Analyzer",
             tags: ["React", "Tailwind CSS", "API", "Puter.js", "AI"],
-            imgId: "./src/assets/pro1.png",
+            imgId: pro1,
             link: "https://ai-resume-analyzer-nine-pearl.vercel.app/",
         },
         {
             title: "Zentry gaming website",
             tags: ["React", "Tailwind CSS", "GSAP", "Three.js"],
-            imgId: "./src/assets/pro2.png",
+            imgId: pro2,
             link: "https://gamingwebsite-phi.vercel.app/",
         },
         {
             title: "AI Image Enhancer",
             tags: ["React", "Tailwind CSS", "API", "AI"],
-            imgId: "./src/assets/p3.png",
+            imgId: p3,
             link: "https://image-enhancer-bice.vercel.app/",
         },
     ],
