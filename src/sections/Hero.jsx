@@ -18,7 +18,7 @@ const Hero = ({ name }) => {
                     </span>
                 </div>
 
-                <div className="relative group cursor-default mb-10">
+                <div className="relative group cursor-default mb-10 md:-translate-x-8">
                     <h1 className="text-8xl md:text-[14.5rem] font-handwriting text-white mb-6 tracking-tight leading-[0.7] relative z-10">
                         {name}
                     </h1>
