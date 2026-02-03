@@ -85,7 +85,8 @@ const FireEffectFooter = () => {
                 {`
           @media (max-width: 768px) {
             #fire {
-              font-size: 6px !important;
+            //   font-size: 6px !important;
+            display: none;
             }
           }
         `}
