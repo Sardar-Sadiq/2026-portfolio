@@ -1,7 +1,7 @@
 import React from "react";
 import { User } from "lucide-react";
 import RevealSection from "../components/RevealSection";
-import SVGDraw from "../components/SVGDraw";
+
 import TextGenerateEffect from "../components/TextGenerateEffect";
 import TagsInputShowcase from "../components/TagsInputShowcase";
 import FireSticker from "../components/FireSticker";
@@ -34,7 +34,7 @@ const About = ({ bio, skills }) => {
                         </picture>
 
                         {/* Fire Sticker at Bottom Right of Image */}
-                        <FireSticker className="absolute hidden md:block -right-12 -bottom-2 md:-right-25 md:-bottom-2 w-28 h-32 md:w-45 md:h-55 -z-10 rotate-[50deg] pointer-events-none" />
+                        <FireSticker className="absolute -right-8 -bottom-2 md:-right-25 md:-bottom-2 w-24 h-28 md:w-45 md:h-55 -z-10 rotate-[50deg] pointer-events-none" />
                     </div>
                 </div>
 
@@ -50,7 +50,7 @@ const About = ({ bio, skills }) => {
                         <TagsInputShowcase tags={skills} />
 
                         {/* Red Sticker at Bottom Right */}
-                        <div className="absolute hidden md:block -right-4 -bottom-10 z-20 w-48 md:w-56 pointer-events-none select-none">
+                        <div className="absolute -right-0 md:-right-3 -bottom-10 z-20 w-42 md:w-56 pointer-events-none select-none">
                             <img
                                 src={sticker}
                                 alt="Sticker"

@@ -12,8 +12,8 @@ const FireEffectFooter = () => {
 
     const firePixelsArray = Array(width * height + 1).fill(0);
 
-    const generateFire = () => {
-        let fireString = "";
+    const generateFire = (timeoutRef) => {
+        let generatedString = "";
 
         for (let i = 0; i < width; i++) {
             let randomCol = Math.floor(Math.random() * width);
@@ -36,16 +36,20 @@ const FireEffectFooter = () => {
 
             firePixelsArray[i] = Math.floor(averageValue);
 
-            fireString += fireChars[firePixelsArray[i]];
-            if (i % width === 0) fireString += `\n`;
+            generatedString += fireChars[firePixelsArray[i]];
+            if (i % width === 0) generatedString += `\n`;
         }
 
-        setFireString(fireString);
-        setTimeout(generateFire, 30);
+        setFireString(generatedString);
+        timeoutRef.current = setTimeout(() => generateFire(timeoutRef), 30);
     };
 
     useEffect(() => {
-        generateFire();
+        const timeoutRef = { current: null };
+        generateFire(timeoutRef);
+        return () => {
+            if (timeoutRef.current) clearTimeout(timeoutRef.current);
+        };
     }, []);
 
     return (
@@ -80,8 +84,8 @@ const FireEffectFooter = () => {
             <style>
                 {`
           @media (max-width: 768px) {
-            .fire-effect-container {
-              display: none; 
+            #fire {
+              font-size: 6px !important;
             }
           }
         `}

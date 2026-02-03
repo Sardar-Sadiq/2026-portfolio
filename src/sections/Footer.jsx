@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { Mail, ArrowUpRight, Clock, MapPin, Globe, ThumbsUp } from "lucide-react";
 import confetti from "canvas-confetti";
 
-const Footer = ({ name, email }) => {
+const Footer = ({ email }) => {
     const [time, setTime] = useState(new Date());
     const [copied, setCopied] = useState(false);
     const buttonRef = useRef(null);
