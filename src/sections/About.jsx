@@ -22,7 +22,7 @@ const About = ({ bio, skills }) => {
                     </h3>
 
                     {/* Profile Polaroid Image */}
-                    <div className="relative w-full max-w-[250px] md:max-w-[400px] md:mt-10 ml-8 md:-ml-18">
+                    <div className="relative w-full max-w-[250px] md:max-w-[400px] md:mt-10 ml-10 md:-ml-18">
                         <picture>
                             <source media="(max-width: 767px)" srcSet={profileImageMobile} />
                             <source media="(min-width: 768px)" srcSet={profileImage} />
