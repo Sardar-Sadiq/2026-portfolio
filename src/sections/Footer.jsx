@@ -1,18 +1,20 @@
 import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Mail, ArrowUpRight, Clock, MapPin, Globe, ThumbsUp } from "lucide-react";
+import { Mail, ArrowUpRight, Clock, MapPin, Globe, ThumbsUp, Github } from "lucide-react";
 import confetti from "canvas-confetti";
+import useIntersectionObserver from "../hooks/useIntersectionObserver";
 
 const Footer = ({ email }) => {
     const [time, setTime] = useState(new Date());
     const [copied, setCopied] = useState(false);
+    const [githubData, setGithubData] = useState({ contributions: "..." });
     const buttonRef = useRef(null);
+    const [footerRef, isVisible] = useIntersectionObserver({ threshold: 0.1, triggerOnce: true });
 
     const handleCopyEmail = () => {
         navigator.clipboard.writeText(email);
         setCopied(true);
 
-        // Calculate button position for confetti
         if (buttonRef.current) {
             const rect = buttonRef.current.getBoundingClientRect();
             const x = (rect.left + rect.width / 2) / window.innerWidth;
@@ -21,14 +23,8 @@ const Footer = ({ email }) => {
             confetti({
                 particleCount: 150,
                 spread: 70,
-                origin: { x, y }, // Exactly from the button center
-                colors: [
-                    "#ef4444", // Red
-                    "#22c55e", // Green
-                    "#eab308", // Yellow
-                    "#ffffff", // White
-                    "#3b82f6"  // Blue
-                ],
+                origin: { x, y },
+                colors: ["#ef4444", "#22c55e", "#eab308", "#ffffff", "#3b82f6"],
                 zIndex: 9999
             });
         }
@@ -36,10 +32,28 @@ const Footer = ({ email }) => {
         setTimeout(() => setCopied(false), 2000);
     };
 
+    const [isLoading, setIsLoading] = useState(true);
+
     useEffect(() => {
         const timer = setInterval(() => setTime(new Date()), 1000);
         return () => clearInterval(timer);
     }, []);
+
+    useEffect(() => {
+        if (!isVisible) return;
+
+        fetch("https://github-contributions-api.deno.dev/Sardar-Sadiq/count")
+            .then(res => res.json())
+            .then(data => {
+                if (data && data.total && data.total.all) {
+                    setGithubData({ contributions: data.total.all.toLocaleString() });
+                } else if (data && data.total_count) {
+                    setGithubData({ contributions: data.total_count.toLocaleString() });
+                }
+            })
+            .catch(() => setGithubData({ contributions: "1k" }))
+            .finally(() => setIsLoading(false));
+    }, [isVisible]);
 
     const formattedTime = time.toLocaleTimeString("en-US", {
         hour: "2-digit",
@@ -49,9 +63,9 @@ const Footer = ({ email }) => {
     });
 
     return (
-        <footer id="footer" className="relative pt-20 mb-20 pb-0 px-6 max-w-7xl mx-auto overflow-hidden">
+        <footer ref={footerRef} id="footer" className="relative pt-20 mb-20 pb-0 px-6 max-w-7xl mx-auto overflow-hidden">
             {/* Background Glow */}
-            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-60  blur-[120px] rounded-full pointer-events-none" />
+            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[80%] h-60 blur-[120px] rounded-full pointer-events-none" />
 
             {/* Header Section */}
             <div className="mb-24">
@@ -67,14 +81,14 @@ const Footer = ({ email }) => {
                         <motion.button
                             ref={buttonRef}
                             onClick={handleCopyEmail}
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="group relative inline-flex items-center gap-4 bg-white/[0.03] backdrop-blur-md border border-white/10 px-8 py-6 rounded-2xl overflow-hidden cursor-pointer"
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            className="group relative inline-flex items-center gap-4 bg-white/[0.02] border border-white/5 px-8 py-6 rounded-2xl overflow-hidden cursor-pointer w-full md:w-auto"
                         >
                             <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                             <div className="relative flex flex-col items-start flex-1 min-w-0">
                                 <span className="text-[10px] uppercase tracking-widest text-zinc-500 mb-1">Click to copy email</span>
-                                <span className="text-sm md:text-lg font-medium text-white truncate">{email}</span>
+                                <span className="text-sm md:text-lg font-medium text-white truncate text-glow-hover">{email}</span>
                             </div>
                             <div className="relative w-12 h-12 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-emerald-500 group-hover:text-black transition-all flex-shrink-0">
                                 <Mail size={20} />
@@ -120,20 +134,45 @@ const Footer = ({ email }) => {
                     </div>
                 </div>
 
+                {/* GitHub Contributions Card */}
+                <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-6 flex flex-col justify-between h-32 group cursor-default">
+                    <span className="text-[10px] uppercase tracking-widest text-zinc-500 flex items-center gap-2">
+                        <Github size={12} /> Commits Info
+                    </span>
+                    <div className="flex flex-col">
+                        <AnimatePresence mode="wait">
+                            {isLoading ? (
+                                <motion.span
+                                    key="loader"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    className="text-2xl font-mono text-zinc-800 animate-pulse"
+                                >
+                                    ...
+                                </motion.span>
+                            ) : (
+                                <motion.span
+                                    key="count"
+                                    initial={{ opacity: 0, y: 5 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6, ease: "easeOut" }}
+                                    className="text-2xl font-mono text-white tracking-widest group-hover:text-emerald-400 transition-colors"
+                                >
+                                    {githubData.contributions}+
+                                </motion.span>
+                            )}
+                        </AnimatePresence>
+                        <span className="text-[8px] uppercase tracking-widest text-zinc-600 mt-1">Total Lifetime Contributions</span>
+                    </div>
+                </div>
+
                 {/* Location Card */}
                 <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-6 flex flex-col justify-between h-32">
                     <span className="text-[10px] uppercase tracking-widest text-zinc-500 flex items-center gap-2">
                         <MapPin size={12} /> Based In
                     </span>
                     <span className="text-lg text-white">Anantapur, India</span>
-                </div>
-
-                {/* Copyright Card */}
-                <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-6 flex flex-col justify-between h-32">
-                    <span className="text-[10px] uppercase tracking-widest text-zinc-500 underline decoration-zinc-800">Legal</span>
-                    <p className="text-[10px] text-zinc-500 leading-relaxed uppercase tracking-widest leading-loose">
-                        © 2026 Sardar Sadiq<br />All Rights Reserved
-                    </p>
                 </div>
             </div>
 
@@ -147,10 +186,12 @@ const Footer = ({ email }) => {
                 <div className="text-[10px] tracking-[0.6em] text-zinc-700 uppercase font-poppins">
                     Crafting digital experiences with precision
                 </div>
-                <div className="flex items-center gap-4 text-zinc-500 text-[10px] tracking-widest cursor-default">
-                    <span>DESIGNED BY SADIQ</span>
-                    <span className="w-8 h-[1px] bg-zinc-800"></span>
-                    <span>DEVELOPED WITH REACT.JS</span>
+                <div className="flex flex-col md:flex-row items-center gap-4 text-zinc-500 text-[10px] tracking-widest cursor-default">
+                    <div className="flex items-center gap-4">
+                        <span>DESIGNED BY SADIQ</span>
+                    </div>
+                    <span className="hidden md:block w-4 h-[1px] bg-zinc-800"></span>
+                    <span className="text-zinc-600">© 2026 ALL RIGHTS RESERVED</span>
                 </div>
             </motion.div>
         </footer>
