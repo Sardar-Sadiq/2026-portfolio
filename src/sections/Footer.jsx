@@ -181,12 +181,10 @@ const Footer = ({ email }) => {
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
-                className="mt-20 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6"
+                className="mt-20 pt-12 border-t border-white/5 flex flex-col items-center md:flex-row justify-end md:items-center gap-6"
             >
-                <div className="text-[10px] tracking-[0.6em] text-zinc-700 uppercase font-poppins">
-                    Crafting digital experiences with precision
-                </div>
-                <div className="flex flex-col md:flex-row items-center gap-4 text-zinc-500 text-[10px] tracking-widest cursor-default">
+
+                <div className="flex flex-col items-center md:flex-row md:items-center gap-4 text-zinc-500 text-[10px] tracking-widest cursor-default text-center md:text-right">
                     <div className="flex items-center gap-4">
                         <span>DESIGNED BY SADIQ</span>
                     </div>
