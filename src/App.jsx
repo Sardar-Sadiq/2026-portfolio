@@ -2,6 +2,7 @@ import React from "react";
 import SmoothScrollWrapper from "./components/SmoothScrollWrapper";
 import BackgroundLayer from "./components/BackgroundLayer";
 import MagnifiedDock from "./components/MagnifiedDock";
+import { Analytics } from "@vercel/analytics/next"
 
 // Sections
 import Hero from "./sections/Hero";
@@ -46,6 +47,7 @@ export default function App() {
         {/* UI-LAYOUTS Magnified Dock */}
         <MagnifiedDock />
       </div>
+      <Analytics />
     </SmoothScrollWrapper>
   );
 }
