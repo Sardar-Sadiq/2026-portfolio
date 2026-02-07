@@ -88,7 +88,7 @@ const Footer = ({ email }) => {
                             <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                             <div className="relative flex flex-col items-start flex-1 min-w-0">
                                 <span className="text-[10px] uppercase tracking-widest text-zinc-500 mb-1">Click to copy email</span>
-                                <span className="text-sm md:text-lg font-medium text-white truncate text-glow-hover">{email}</span>
+                                <span className="text-sm md:text-lg font-medium text-white truncate text-glow-hover">hello@sardarsadiq.fr</span>
                             </div>
                             <div className="relative w-12 h-12 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-emerald-500 group-hover:text-black transition-all flex-shrink-0">
                                 <Mail size={20} />
