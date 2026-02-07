@@ -64,5 +64,5 @@ export const resumeData = {
             link: "https://image-enhancer-bice.vercel.app/",
         },
     ],
-    email: "sardarsadiq001@example.com",
+    email: "sardarsadiq001@gmail.com",
 };
