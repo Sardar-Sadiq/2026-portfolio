@@ -101,7 +101,7 @@ const Projects = ({ projects }) => {
                                         }}
                                     >
                                         <p className="text-zinc-400 text-base leading-relaxed font-light mb-8">
-                                            {project.info}
+                                            <strong>{project.title}</strong> {project.info}
                                         </p>
 
                                         <div className="flex flex-wrap gap-2">
