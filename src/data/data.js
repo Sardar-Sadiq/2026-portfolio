@@ -1,6 +1,6 @@
 import pro1 from "../assets/pro1.png";
 import pro3 from "../assets/pro3.png";
-import p2 from "../assets/p2.png";
+import pro2 from "../assets/pro2.png";
 
 export const resumeData = {
     name: "Sardar Sadiq",
@@ -52,10 +52,10 @@ export const resumeData = {
             link: "https://ai-resume-analyzer-nine-pearl.vercel.app/",
         },
         {
-            title: "Zentry gaming website",
-            tags: ["React", "Tailwind CSS", "GSAP", "Three.js"],
-            imgId: p2,
-            link: "https://gamingwebsite-phi.vercel.app/",
+            title: "Gifity AI",
+            tags: ["React", "Tailwind CSS", "GSAP", "AI"],
+            imgId: pro2,
+            link: "https://giftify-ai.vercel.app/",
         },
         {
             title: "AI Image Enhancer",
