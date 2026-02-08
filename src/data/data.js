@@ -50,18 +50,21 @@ export const resumeData = {
             tags: ["React", "Tailwind CSS", "API", "Puter.js", "AI"],
             imgId: pro1,
             link: "https://ai-resume-analyzer-nine-pearl.vercel.app/",
+            info: "AI Resume Analyzer is a web application that uses AI to analyze a resume and provide feedback on how to improve it. It uses a combination of natural language processing and machine learning to analyze the resume and provide feedback on how to improve it."
         },
         {
             title: "Gifity AI",
             tags: ["React", "Tailwind CSS", "GSAP", "AI"],
             imgId: pro2,
             link: "https://giftify-ai.vercel.app/",
+            info: "Gifity AI is a web application that uses AI logic to generate gifts for users by asking them a few questions."
         },
         {
             title: "AI Image Enhancer",
             tags: ["React", "Tailwind CSS", "API", "AI"],
             imgId: pro3,
             link: "https://image-enhancer-bice.vercel.app/",
+            info: "AI Image Enhancer is a web application that uses AI to enhance images by removing noise and improving the quality of the image."
         },
     ],
     email: "sardarsadiq001@gmail.com",

@@ -101,10 +101,7 @@ const Projects = ({ projects }) => {
                                         }}
                                     >
                                         <p className="text-zinc-400 text-base leading-relaxed font-light mb-8">
-                                            Exploring the boundaries of digital design with{" "}
-                                            <strong>{project.title}</strong>. This project focuses on
-                                            integrating seamless user experiences with cutting-edge
-                                            technology.
+                                            {project.info}
                                         </p>
 
                                         <div className="flex flex-wrap gap-2">
