@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import Preloader from "./components/Preloader";
 import SmoothScrollWrapper from "./components/SmoothScrollWrapper";
 import BackgroundLayer from "./components/BackgroundLayer";
 import MagnifiedDock from "./components/MagnifiedDock";
@@ -16,7 +17,11 @@ import FireEffectFooter from "./components/FireEffectFooter";
 import { resumeData } from "./data/data";
 
 export default function App() {
+  const [loading, setLoading] = useState(true);
+
   return (
+    <>
+      {loading && <Preloader onComplete={() => setLoading(false)} />}
     <SmoothScrollWrapper>
       <div className="bg-black text-zinc-300 min-h-screen selection:bg-white selection:text-black font-poppins overflow-x-hidden relative">
         <style
@@ -49,5 +54,6 @@ export default function App() {
       </div>
 
     </SmoothScrollWrapper>
+    </>  
   );
 }
