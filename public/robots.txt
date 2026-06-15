@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap location — required by Bing & DuckDuckGo crawlers
+Sitemap: https://sardarsadiq.vercel.app/sitemap.xml
