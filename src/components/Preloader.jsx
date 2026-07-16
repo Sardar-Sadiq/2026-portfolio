@@ -122,8 +122,7 @@ export default function Preloader({ onComplete }) {
           right: 0,
           height: "30%",
           background: "linear-gradient(to bottom, transparent 0%, rgba(63,63,70,0.05) 55%, #000 100%)",
-          backdropFilter: "blur(4px)",
-          WebkitBackdropFilter: "blur(4px)",
+
           maskImage: "linear-gradient(to bottom, transparent 0%, black 45%)",
           WebkitMaskImage: "linear-gradient(to bottom, transparent 0%, black 45%)",
           pointerEvents: "none",
