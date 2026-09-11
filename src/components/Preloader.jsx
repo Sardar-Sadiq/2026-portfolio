@@ -44,7 +44,7 @@ export const SpiderStickerLoader = ({ src = "/comic.png", className = "" }) => {
         transition={{
           duration: 2.9,
           times: [0, 0.2, 0.35, 0.48, 0.6, 0.72, 0.85, 0.93, 1],
-          ease: "easeInOut",
+          ease: "steps(14)",
         }}
       >
         <svg
@@ -78,7 +78,7 @@ export const SpiderStickerLoader = ({ src = "/comic.png", className = "" }) => {
                   transition={{
                     duration: 2.9,
                     times: [0, 0.36, 0.64, 1],
-                    ease: "easeInOut",
+                    ease: "steps(14)",
                     delay: path.delay,
                   }}
                 />
