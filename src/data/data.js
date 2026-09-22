@@ -22,6 +22,17 @@ export const resumeData = {
     ],
     experience: [
         {
+            company: "Spirit Data Solutions",
+            role: "Frontend Developer",
+            period: "Mar — Present 2026",
+            achievements: [
+                "Designed and build the company website.",
+                "Build the QR base employee verification system and employee verification portal",
+                "Build a HRMS portal for company, created a RBAC for access.",
+                "Added the feature for attendance in HRMS portal with GEO fencing attendance."
+            ]
+        },
+        {
             company: "Zummit Info Labs",
             role: "Web Developer Intern",
             period: "Jun — Oct 2024",
